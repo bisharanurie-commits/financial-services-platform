@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import Customers from "./components/Customers";
-
+import Transactions from "./components/Transactions";
+import Wallets from "./components/Wallets";
+import BillPayments from "./components/BillPayments";
 function App() {
   const [activePage, setActivePage] = useState("Dashboard");
 
@@ -41,6 +43,26 @@ function App() {
     "Reports",
     "Settings"
   ];
+  const [wallets, setWallets] = useState([
+  {
+    id: 1,
+    customerId: 1,
+    balance: 10000,
+    status: "Active"
+  },
+  {
+    id: 2,
+    customerId: 2,
+    balance: 25000,
+    status: "Active"
+  },
+  {
+    id: 3,
+    customerId: 3,
+    balance: 5000,
+    status: "Active"
+  }
+]);
 
   // Transactions use the registered customer names
   const [transactions, setTransactions] = useState([
@@ -66,28 +88,57 @@ function App() {
     status: "Pending"
   }
 ]);
-  const statistics = [
-    {
-      title: "Total Customers",
-      value: customers.length,
-      change: "+12.5%"
-    },
-    {
-      title: "Total Wallet Balance",
-      value: "KES 8.5M",
-      change: "+8.2%"
-    },
-    {
-      title: "Total Transactions",
-      value: transactions.length,
-      change: "+15.3%"
-    },
-    {
-      title: "Active Agents",
-      value: "245",
-      change: "+5.4%"
-    }
-  ];
+ const totalTransactionValue = transactions.reduce(
+  (total, transaction) => total + Number(transaction.amount),
+  0
+);
+
+const completedTransactions = transactions.filter(
+  (transaction) => transaction.status === "Completed"
+).length;
+
+const pendingTransactions = transactions.filter(
+  (transaction) => transaction.status === "Pending"
+).length;
+
+const statistics = [
+  {
+    title: "Total Customers",
+    value: customers.length,
+    change: "+12.5%"
+  },
+  {
+    title: "Total Wallet Balance",
+    value: "KES 8.5M",
+    change: "+8.2%"
+  },
+  {
+    title: "Total Transactions",
+    value: transactions.length,
+    change: "+15.3%"
+  },
+  {
+    title: "Active Agents",
+    value: "245",
+    change: "+5.4%"
+  },
+  {
+    title: "Transaction Value",
+    value: `KES ${totalTransactionValue.toLocaleString("en-KE")}`,
+    change: "All transactions"
+  },
+  {
+    title: "Completed Transactions",
+    value: completedTransactions,
+    change: "Successful"
+  },
+  {
+    title: "Pending Transactions",
+    value: pendingTransactions,
+    change: "Awaiting processing"
+  }
+];
+
 
   return (
     <div className="app-container">
@@ -271,15 +322,30 @@ function App() {
 
           </>
 
-        ) : activePage === "Customers" ? (
+       ) : activePage === "Customers" ? (
 
-          <Customers
-            customers={customers}
-            setCustomers={setCustomers}
-          />
+  <Customers
+    customers={customers}
+    setCustomers={setCustomers}
+  />
+) : activePage === "Transactions" ? (
 
-        ) : (
+  <Transactions
+    customers={customers}
+    transactions={transactions}
+    setTransactions={setTransactions}
+  />
 
+) : activePage === "Wallets" ? (
+  <Wallets
+    customers={customers}
+    wallets={wallets}
+    setWallets={setWallets}
+    setTransactions={setTransactions}
+  />
+) : activePage === "Bill Payments" ? (
+  <BillPayments customers={customers} />
+) : (
           <section className="content-card module-page">
             <h2>{activePage} Management</h2>
 

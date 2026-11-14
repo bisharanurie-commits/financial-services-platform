@@ -477,3 +477,197 @@ footer {
     min-width: 650px;
   }
 }
+
+
+/* ==============================
+   TRANSACTION MANAGEMENT
+============================== */
+
+.transactions-page {
+  width: 100%;
+  color: #e2e8f0;
+}
+
+.transactions-page .page-heading {
+  margin-bottom: 25px;
+}
+
+.transactions-page .page-heading h2 {
+  color: #f8fafc;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.transactions-page .page-heading p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.transactions-page .content-card {
+  background: #142138;
+  border: 1px solid #263449;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 25px;
+}
+
+.transaction-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.transaction-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transaction-form label {
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.transaction-form input,
+.transaction-form select {
+  width: 100%;
+  padding: 14px;
+  background: #0b1120;
+  color: white;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.transaction-form input:focus,
+.transaction-form select:focus {
+  border-color: #2dd4bf;
+}
+
+.transaction-form select option {
+  background: #142138;
+  color: white;
+}
+
+.transaction-form .action-button {
+  grid-column: 1 / -1;
+  margin-top: 5px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.transaction-search {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 22px;
+  background: #0b1120;
+  color: white;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  outline: none;
+}
+
+.transaction-search:focus {
+  border-color: #2dd4bf;
+}
+
+.transactions-page .delete-button {
+  background: #7f1d1d;
+  color: white;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.transactions-page .delete-button:hover {
+  background: #991b1b;
+}
+
+.transactions-page .section-heading strong {
+  color: #2dd4bf;
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+  .transaction-form {
+    grid-template-columns: 1fr;
+  }
+
+  .transactions-page .content-card {
+    padding: 18px;
+  }
+}
+
+/* BILL PAYMENTS PAGE */
+
+.bill-payments-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.bill-payments-page .page-heading {
+  margin-bottom: 5px;
+}
+
+.bill-payments-page .customer-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+}
+
+.bill-payments-page .summary-card {
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 12px;
+  padding: 22px;
+  min-width: 0;
+  border-left: 4px solid #0ea5e9;
+}
+
+.bill-payments-page .summary-card h3 {
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.bill-payments-page .summary-card h2 {
+  color: #f1f5f9;
+  font-size: 24px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.bill-payments-page .content-card {
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.bill-payments-page .section-heading {
+  margin-bottom: 22px;
+}
+
+.bill-payments-page .section-heading h2 {
+  color: #f1f5f9;
+  font-size: 19px;
+}
+
+@media (max-width: 1000px) {
+  .bill-payments-page .customer-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .bill-payments-page .customer-summary {
+    grid-template-columns: 1fr;
+  }
+}
