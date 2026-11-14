@@ -671,3 +671,230 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* =================================
+   AGENT MANAGEMENT PAGE
+================================= */
+
+.agents-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.agents-page .page-heading {
+  margin-bottom: 5px;
+}
+
+.agents-page .page-heading h2 {
+  color: #f1f5f9;
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.agents-page .page-heading p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* SUMMARY CARDS */
+
+.agents-page .customer-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+}
+
+.agents-page .summary-card {
+  background: #111c30;
+  border: 1px solid #263750;
+  border-left: 4px solid #0ea5e9;
+  border-radius: 12px;
+  padding: 24px;
+  min-width: 0;
+}
+
+.agents-page .summary-card:nth-child(2) {
+  border-left-color: #10b981;
+}
+
+.agents-page .summary-card:nth-child(3) {
+  border-left-color: #f59e0b;
+}
+
+.agents-page .summary-card h3 {
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.agents-page .summary-card h2 {
+  color: #f8fafc;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* REGISTRATION FORM */
+
+.agents-page .content-card {
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.agents-page .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.agents-page .section-heading h2 {
+  color: #f1f5f9;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.agents-page .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.agents-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.agents-page .form-group label {
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.agents-page .form-group input,
+.agents-page .form-group select {
+  width: 100%;
+  padding: 13px 14px;
+  background: #0b1120;
+  border: 1px solid #334155;
+  border-radius: 7px;
+  color: #f1f5f9;
+  font-size: 14px;
+  outline: none;
+}
+
+.agents-page .form-group input:focus,
+.agents-page .form-group select:focus {
+  border-color: #0ea5e9;
+}
+
+.agents-page .form-group input::placeholder {
+  color: #64748b;
+}
+
+.agents-page .form-group select option {
+  background: #111c30;
+  color: #f1f5f9;
+}
+
+.agents-page .form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  grid-column: 1 / -1;
+  margin-top: 5px;
+}
+
+.agents-page .action-button {
+  background: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 13px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.agents-page .action-button:hover {
+  background: #0369a1;
+}
+
+/* AGENT TABLE */
+
+.agents-page .table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.agents-page table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 750px;
+}
+
+.agents-page table th {
+  background: #0b1120;
+  color: #94a3b8;
+  padding: 15px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.agents-page table td {
+  color: #cbd5e1;
+  padding: 16px 15px;
+  border-bottom: 1px solid #263750;
+  font-size: 13px;
+}
+
+.agents-page table tr:hover td {
+  background: #17243a;
+}
+
+.agents-page .text-button {
+  background: transparent;
+  border: none;
+  color: #38bdf8;
+  cursor: pointer;
+  font-size: 13px;
+  margin-right: 12px;
+}
+
+.agents-page .text-button:hover {
+  color: #7dd3fc;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 800px) {
+  .agents-page .customer-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .agents-page .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .agents-page .customer-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .agents-page .content-card {
+    padding: 18px;
+  }
+
+  .agents-page .form-actions {
+    flex-wrap: wrap;
+  }
+}

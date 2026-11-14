@@ -5,6 +5,7 @@ import Customers from "./components/Customers";
 import Transactions from "./components/Transactions";
 import Wallets from "./components/Wallets";
 import BillPayments from "./components/BillPayments";
+import Agents from "./components/Agents";
 function App() {
   const [activePage, setActivePage] = useState("Dashboard");
 
@@ -345,6 +346,8 @@ const statistics = [
   />
 ) : activePage === "Bill Payments" ? (
   <BillPayments customers={customers} />
+) : activePage === "Agents" ? (
+  <Agents />
 ) : (
           <section className="content-card module-page">
             <h2>{activePage} Management</h2>
