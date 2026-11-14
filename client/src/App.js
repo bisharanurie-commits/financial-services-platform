@@ -7,6 +7,7 @@ import Wallets from "./components/Wallets";
 import BillPayments from "./components/BillPayments";
 import Agents from "./components/Agents";
 import Reports from "./components/Reports";
+import Settings from "./components/Settings";
 function App() {
   const [activePage, setActivePage] = useState("Dashboard");
 
@@ -356,6 +357,8 @@ const statistics = [
     transactions={transactions}
     wallets={wallets}
   />
+  ) : activePage === "Settings" ? (
+  <Settings />
 ) : (
           <section className="content-card module-page">
             <h2>{activePage} Management</h2>
